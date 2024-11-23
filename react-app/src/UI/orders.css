@@ -1,0 +1,18 @@
+.product_block2 {
+    flex: 0 0 auto;
+    width: 32.33333333%;
+}
+.flex_wrapp{
+    margin-top: 80px;
+    border: 1px solid gray;
+    padding: 40px;
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.name_block{
+    display: flex;
+}
+#ho{
+    min-height: 670px;
+}
