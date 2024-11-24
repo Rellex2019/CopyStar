@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Http\Resources\ProductResource;
+use App\Models\Categories;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,10 @@ class ProductController extends Controller
         ];
     }
     public function oneProduct($id){
-        return response(Product::find($id));
+        return new ProductResource(Product::find($id));
+    }
+    public function showCategories()
+    {
+        return response(Categories::all());
     }
 }

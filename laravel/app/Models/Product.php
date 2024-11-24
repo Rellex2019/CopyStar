@@ -18,4 +18,8 @@ class Product extends Model
         'price',
         'quantity_available'
     ];
+    public function categories()
+    {
+        return $this->belongsTo(Categories::class);
+    }
 }

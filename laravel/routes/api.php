@@ -24,6 +24,7 @@ Route::post('/signup', [UserController::class, 'signup']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/product/{id}', [ProductController::class, 'oneProduct']);
 Route::post('/change', [ProductCartController::class, 'changeQuantity']);
+Route::get('/categories', [ProductController::class, 'showCategories']);
 
 Route::middleware(['auth:api'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout'])->middleware(['auth:api']);

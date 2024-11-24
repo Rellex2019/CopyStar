@@ -86,8 +86,14 @@ class User extends Authenticatable
                     'product_id' => $productCart->product_id,
                     'quantity' => $productCart->quantity,
                 ]);
-        //     $oldQuan = Product::find($productCart->product_id)->quantity_available;
-        //     Product::where('id', $productCart->product_id)->update(['quantity_available'=>$oldQuan - $productCart->quantity]);
+
+
+
+
+            $oldQuan = Product::find($productCart->product_id)->quantity_available;
+            Product::where('id', $productCart->product_id)->update(['quantity_available'=>$oldQuan - $productCart->quantity]);
+       
+       
         });
         return $this;
     }
