@@ -81,7 +81,7 @@ useEffect(()=>{
                     to={'/'}
                     style={{ padding: "10px 20px" }}
                   >
-                    Главная
+                    Главная 
                   </Link>
                 </li>
                 <li className="u-nav-item">
