@@ -13,7 +13,7 @@ const Footer = ()=>{
       <div style={{width:1320,display:"flex",flexDirection:"column", alignItems:"center"}}>
         <div className="cont_footer_block" style={{display: "flex"}}>
           <div className="cont_footer" style={{display: "flex", alignItems: "center"}}>
-            <a href="#" >
+            <a href="#" style={{marginTop: 35}} >
               <img src={img} style={{width:100, height:100 }}/>
             </a>
             <h6 style={{marginTop:50}}>Copy Star </h6>

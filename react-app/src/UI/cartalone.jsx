@@ -20,7 +20,7 @@ const CartAlone = (product)=>{
 
         setQuantity(quantity+1);
         axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('userToken')}`;
-        const respone =await axios.post(`http://localhost:8000/api-samohod/change`, {'id': product.id, 'quantity': quantity+1});
+        const respone =await axios.post(`http://localhost:8000/api-samohod/change`, {'id': product.id_cart, 'quantity': quantity+1});
         }
       }
       const handleMinus = async(e)=>{
@@ -34,11 +34,11 @@ const CartAlone = (product)=>{
         {   
             setVisible(false);
             axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('userToken')}`;
-            await axios.delete(`http://localhost:8000/api-samohod/cart/${product.id}`);
+            await axios.delete(`http://localhost:8000/api-samohod/cart/${product.id_cart}`);
         }
         else{
         axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('userToken')}`;
-        const respone =await axios.post(`http://localhost:8000/api-samohod/change`, {'id': product.id, 'quantity': quantity-1});
+        const respone =await axios.post(`http://localhost:8000/api-samohod/change`, {'id': product.id_cart, 'quantity': quantity-1});
         }
       }
 
@@ -73,7 +73,7 @@ const CartAlone = (product)=>{
                             <div className="center">
                                 <button type="button" class="plus_btn" onClick={handlePlus}>+</button>
                                 <button type="button" class="minus_btn" onClick={handleMinus} >&minus;</button>
-                                <button type="button" value={product.id} class="del_btn"onClick={product.del}>&times;</button>
+                                <button type="button" value={product.id_cart} class="del_btn"onClick={product.del}>&times;</button>
 
                             </div>
 

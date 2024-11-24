@@ -40,7 +40,7 @@ const Cart = ()=>{
                 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('userToken')}`;
                 const response = await axios.get('http://localhost:8000/api-samohod/cart');
                 setProducts(response.data.content);
-                console.log(response.data.content)
+                // console.log(response.data.content)
             }
             catch(error){
                 console.error('Error fetching users:', error);
@@ -93,8 +93,8 @@ const Cart = ()=>{
                 {loading? <div>Loading...</div>: 
 
                 products.map(product=><>
-                    {console.log(product)}
-                    <CartAlone summ={setTotalSumm} totalPrice={totalSumm} del = {handleDelClick} id={product.product_id} name={product.name} price={product.price} description={product.description} quantity={product.quantity}/>
+                {console.log(product)}
+                    <CartAlone key={product.id} id_cart= {product.id} summ={setTotalSumm} totalPrice={totalSumm} del = {handleDelClick} id={product.product_id} name={product.name} price={product.price} description={product.description} quantity={product.quantity}/>
                     </>
                 )}
             </div>
