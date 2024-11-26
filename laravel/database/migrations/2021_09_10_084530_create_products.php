@@ -18,6 +18,7 @@ class CreateProducts extends Migration
             $table->string('name', 255);
             $table->text('description');
             $table->decimal('price',8,2);
+            $table->string('image')->nullable();
             $table->integer('quantity_available');
             $table->foreignId('categories_id')->constrained()->onDelete('cascade');
         });

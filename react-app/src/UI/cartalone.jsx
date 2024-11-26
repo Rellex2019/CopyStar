@@ -61,13 +61,16 @@ const CartAlone = (product)=>{
 
 <div className="product_block2" key={product.id}>
                     <div className="img_block">
-                        <img  src={img} className="img_cart" />
+                    {product.image?  <img className="img_cart" src={`http://127.0.0.1:8000/${product.image}`} alt={product.name} />
+                        :<img src={img} alt="Ну нет" className="img_cart" />
+                        
+}
                         <div className="flex_dir">
                         <div className="marg_block">
                             <div className="name_product">{product.name.length>40?product.name.slice(0,30)+'...':product.name}</div>
                             <div style={{display:"flex"}}>
                               <div className="price">{product.price}р. &times; {quantity} шт.</div>
-                              <div style={{marginLeft:30}} className="price">В наличии:{maxQuantity}</div>
+                              <div style={{marginLeft:30}} className="price">В наличии:{maxQuantity!= quantity? maxQuantity:<div style={{color:'red'}}> { maxQuantity}</div>}</div>
                             </div>
 
                             <div className="center">

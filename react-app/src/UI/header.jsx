@@ -21,6 +21,7 @@ useEffect(()=>{
         axios.defaults.headers.common['Authorization']= `Bearer ${token}`;
         await axios.get('http://localhost:8000/api-samohod/logout');
         localStorage.clear('userToken');
+        localStorage.clear('role');
         setToken('');
         // window.location.reload();
         nav('/');
@@ -75,6 +76,18 @@ useEffect(()=>{
             </div>
             <div className="u-custom-menu u-nav-container">
               <ul className="u-nav u-unstyled u-nav-1">
+                {localStorage.getItem('role')==='admin'?
+
+                                <li className="u-nav-item">
+                                <Link
+                                  to={'admin'}
+                                  className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                  style={{ padding: "10px 20px" }}
+                                >
+                                  Админ панель
+                                </Link>
+                                </li>: null}
+
                 <li className="u-nav-item">
                   <Link
                     className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -119,7 +132,7 @@ useEffect(()=>{
                 <div
                   className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                   onClick={handleClick}
-                  style={{ padding: "10px 20px" }}
+                  style={{ padding: "10px 20px", cursor:"pointer" }}
                 >
                   Выход
                 </div>

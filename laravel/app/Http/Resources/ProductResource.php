@@ -16,7 +16,8 @@ class ProductResource extends JsonResource
           'description'=>$this->description,
           'price'=>(int)$this->price,
           'quantity'=>(int)$this->quantity_available,
-          'categories'=> Categories::find($this->categories_id)->name
+          'categories'=> Categories::find($this->categories_id)->name,
+          'image'=>$this->image
         ];
     }
 }

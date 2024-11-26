@@ -1,6 +1,6 @@
 
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Navigate, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import svg_email from '../images/542638-d2d97074.png';
 import svg_phone from '../images/327589-f47d17ea.png';
@@ -11,6 +11,18 @@ const Registration = ()=>{
     const [formData, setFormData] =  useState([]);
     const [error, setError] = useState();
     const [val, setVal] = useState(false);
+
+useEffect(()=>{
+  if(localStorage.getItem('userToken')!==null){
+    nav('/');
+  }
+},[])
+
+
+
+
+
+
     const handleOnChange = (e)=>{
         setFormData({...formData, [e.target.name] : e.target.value})
         console.log(formData);

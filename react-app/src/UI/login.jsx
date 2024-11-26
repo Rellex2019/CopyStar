@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './login.css';
 import svg_email from '../images/542638-d2d97074.png';
 import svg_phone from '../images/327589-f47d17ea.png';
-const Login = ()=>{
+const Login = ({UserProfile})=>{
+
+
+
+  useEffect(()=>{
+    if(localStorage.getItem('userToken')!==null){
+      nav('/');
+    }
+  },[])
+
+
+
     const [error, setError] = useState();
     const nav = useNavigate();
+
+
+
+
+
     const handleGoBack = (e) => {
         e.preventDefault();
         nav('/');
@@ -33,6 +49,10 @@ const Login = ()=>{
 
         const token =response.data.content.user_token;
         localStorage.setItem('userToken', token);
+
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        const role = await axios.get(`http://localhost:8000/api-samohod/role`);      
+        localStorage.setItem('role', role.data);
 
         nav('/');
         window.location.reload();

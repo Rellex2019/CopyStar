@@ -1,6 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+
+import React from "react";
 import img from '../images/removal.ai_3c3ce137-3fc7-4232-94b4-de0b823e6e2c-dewatermark-ai_1731670924701.png';
 
 const Footer = ()=>{
@@ -9,7 +8,7 @@ const Footer = ()=>{
 
     return(
       <>
-      <footer style={{width:'100vw', marginTop:'100px',backgroundColor: '#333333', color: "#FFFFFF", display:"flex", justifyContent:"center"}}>
+      <footer style={{width:'100vw',backgroundColor: '#333333', color: "#FFFFFF", display:"flex", justifyContent:"center"}}>
       <div style={{width:1320,display:"flex",flexDirection:"column", alignItems:"center"}}>
         <div className="cont_footer_block" style={{display: "flex"}}>
           <div className="cont_footer" style={{display: "flex", alignItems: "center"}}>

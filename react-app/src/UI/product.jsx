@@ -26,8 +26,8 @@ const Product = (props)=>{
 
 
                 const response = await axios.get(`http://localhost:8000/api-samohod/product/${id}`);
-                setProduct(response.data);
-                console.log(response.data);
+                setProduct(response.data.content);
+                console.log(response.data.content);
             } catch (error) {
                 console.error('Error fetching users:', error);
             } finally {
@@ -61,13 +61,16 @@ nav('/cart');
 
             <div className="cont_product_alone">
                 <div className="cont_product">
-                    <div className="first_block"><img className="first_img" src={img} alt="" /></div>
+                    <div className="first_block"> {product.image?  <img className="first_img" src={`http://127.0.0.1:8000/${product.image}`} alt={product.name} />
+                        :<img src={img} alt="Ну нет" className="first_img" />
+}</div>
                     <div className="second_block">
                         <div className="name">{product.name}</div>
                         <div className="description">{product.description}</div>
                         <div className="cont_two">
-                            <div className="price">{product.price.slice(0,-3)} р.</div>
-                            <div style={{marginLeft:50}} className="price">Доступно сейчас: {product.quantity_available}</div>
+                            <div className="price">{product.price} р.</div>
+                            <div style={{marginLeft:50}} className="price">Доступно сейчас: {product.quantity}</div>
+                            <div style={{marginLeft:50}} className="price">Тип принтера: {product.categories.charAt(0).toUpperCase() + product.categories.slice(1)}</div>
                             {localStorage.getItem('userToken')?<button type="button" className="btn_prod" value={product.id} onClick={handleClickCart}>Добавить в корзину</button>:''}
                         </div>
 

@@ -94,7 +94,7 @@ const Cart = ()=>{
 
                 products.map(product=><>
                 {console.log(product)}
-                    <CartAlone key={product.id} id_cart= {product.id} summ={setTotalSumm} totalPrice={totalSumm} del = {handleDelClick} id={product.product_id} name={product.name} price={product.price} description={product.description} quantity={product.quantity}/>
+                    <CartAlone key={product.id} image={product.image} id_cart= {product.id} summ={setTotalSumm} totalPrice={totalSumm} del = {handleDelClick} id={product.product_id} name={product.name} price={product.price} description={product.description} quantity={product.quantity}/>
                     </>
                 )}
             </div>

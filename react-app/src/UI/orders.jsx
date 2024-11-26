@@ -43,7 +43,7 @@ const Orders = ()=>{
 let numberOrder = 1;
 
     return(
-            <div class="container py-3">
+            <div style={{minHeight:800}} class="container py-3">
                 <div class="pricing-header p-3 pb-md-4 mx-auto text-center" >
                     <div class="name_block">Ваши заказы</div>
                 </div>
@@ -57,7 +57,10 @@ let numberOrder = 1;
                         {order.products.map(order=>
                         <div className="product_block2" key={order.product.id}>
                         <div className="img_block">
-                        <img  src={img} className="img_cart" />
+                        {order.product.image?  <img className="img_cart" src={`http://127.0.0.1:8000/${order.product.image}`} alt={order.product.name} />
+                        :<img src={img} alt="Ну нет" className="img_cart" />
+                        
+}
                         <div className="flex_dir">
                         <div className="marg_block">
                             <div className="name_product">{order.product.name}</div>

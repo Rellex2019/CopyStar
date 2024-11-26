@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Product;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductCartResource extends JsonResource
@@ -15,6 +16,7 @@ class ProductCartResource extends JsonResource
             'name' => $this->product->name,
             'price' => (int)$this->product->price,
             'quantity' => (int)$this->quantity,
+            'image'=> Product::find($this->product->id)->image
         ];
     }
 }
